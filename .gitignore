@@ -1,0 +1,50 @@
+# OS-specific
+.DS_Store
+
+./sourcesense_liferay/files/default/activation-key-development-6.2ee-Sourcense.xml
+./sourcesense_liferay/files/default/liferay-portal-tomcat-6.2-ee-sp14-20151105114451508.zip
+
+# Editor swapfiles
+.*.sw?
+*~
+
+# Vagrant stuff
+acceptance_config.yml
+boxes/*
+/.vagrant
+/website/.vagrant
+/website/build
+/vagrant-spec.config.rb
+
+# Bundler/Rubygems
+*.gem
+.bundle
+pkg/*
+tags
+/Gemfile.lock
+test/tmp/
+vendor/
+/exec
+
+# Documentation
+_site/*
+.yardoc/
+doc/
+
+# Python
+*.pyc
+
+# Rubinius
+*.rbc
+
+# IDE junk
+.idea/*
+*.iml
+.project
+
+# Ruby Managers
+.rbenv
+.rbenv-gemsets
+.ruby-gemset
+.ruby-version
+.rvmrc

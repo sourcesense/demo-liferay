@@ -1,0 +1,9 @@
+source 'https://supermarket.chef.io'
+
+cookbook 'nfs'
+cookbook 'mysql'
+cookbook 'java'
+cookbook 'sourcesense_nfs', path: '../sourcesense_nfs'
+cookbook 'myloadbalancer', path: '../myloadbalancer'
+cookbook 'sourcesense_mysql', path: '../sourcesense_mysql'
+cookbook 'sourcesense_liferay', path: '../sourcesense_liferay'

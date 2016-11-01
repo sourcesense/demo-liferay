@@ -1,0 +1,11 @@
+name 'sourcesense_liferay'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures sourcesense_liferay'
+long_description 'Installs/Configures sourcesense_liferay'
+version '0.1.0'
+
+depends 'selinux'
+depends 'ark'
+depends 'docker'

@@ -1,0 +1,11 @@
+name 'sourcesense_mysql'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures sourcesense_mysql'
+long_description 'Installs/Configures sourcesense_mysql'
+version '0.1.0'
+
+depends 'mysql2_chef_gem', '~> 1.0'
+depends 'database'
+depends 'mysql'
