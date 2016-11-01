@@ -15,11 +15,19 @@ The following files are not stored in GIT. Please put it manually. If you change
 
 This  Vagrantfile container 3 nodes
 
-- services01 => Mysqls,NFS Server and Haproxy
+- services01 => Mysql Server,NFS Server and Haproxy as reverse proxy
 - liferaynode01 => Liferay backend 1
 - liferaynode02 => Liferay backend 2
 
-![Alt text](architecture.png "architecture" =100x20)
+### Network flow ###
+[Http Client] => [ services01 (Haproxy Load Balancer) ]  ==>  [ liferaynode01,liferaynode02]
+
+### Shared data between Liferay nodes ###
+liferaynode01 ==> [shared data (nfs)] <== liferaynode02
+
+### Database ###
+
+[ liferaynode01,liferaynode02] ==> services01 (Mysql Server)  
 
 ## Prepare you development environment ##
 Install Vagrant, Virtualbox and ChefDK (https://downloads.chef.io/chef-dk/)
