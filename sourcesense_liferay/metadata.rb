@@ -6,6 +6,7 @@ description 'Installs/Configures sourcesense_liferay'
 long_description 'Installs/Configures sourcesense_liferay'
 version '0.1.0'
 
+depends 'sourcesense_mysql'
 depends 'selinux'
 depends 'ark'
 depends 'docker'

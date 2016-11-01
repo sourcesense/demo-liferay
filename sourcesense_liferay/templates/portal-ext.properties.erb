@@ -1,4 +1,4 @@
-auto.deploy.dest.dir=<%node['sourcesense_liferay']['lf_home']%>/cluster_deploy/deploy 
+auto.deploy.dest.dir=<%=node['sourcesense_liferay']['lf_home']%>/cluster_deploy/deploy 
 
 default.admin.password=liferay
 default.admin.screen.name= Admin
@@ -12,8 +12,8 @@ web.server.display.node=true
 org.quartz.jobStore.isClustered=true
 cluster.link.enabled=true
 ehcache.cluster.link.replication.enabled=true
-net.sf.ehcache.configurationResourceName=<%node['sourcesense_liferay']['lf_home']%>/ehcache/hibernateclustered.xml
-ehcache.multi.vm.config.location=<%node['sourcesense_liferay']['lf_home']%>/ehcache/liferay-multi-vmclustered.xml
+net.sf.ehcache.configurationResourceName=<%=node['sourcesense_liferay']['lf_home']%>/ehcache/hibernateclustered.xml
+ehcache.multi.vm.config.location=<%=node['sourcesense_liferay']['lf_home']%>/ehcache/liferay-multi-vmclustered.xml
 
 lucene.dir=<%=node['sourcesense_liferay']['data_nfs_mount']%>
 

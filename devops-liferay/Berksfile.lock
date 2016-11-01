@@ -69,6 +69,7 @@ GRAPH
     ark (>= 0.0.0)
     docker (>= 0.0.0)
     selinux (>= 0.0.0)
+    sourcesense_mysql (>= 0.0.0)
   sourcesense_mysql (0.1.0)
     database (>= 0.0.0)
     mysql (>= 0.0.0)

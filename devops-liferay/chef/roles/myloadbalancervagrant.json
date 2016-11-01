@@ -3,7 +3,11 @@
   "description": "Install and configure Ha-Proxy",
   "json_class": "Chef::Role",
   "default_attributes": {
-
+   "haproxy": {
+     "admin": {
+       "address_bind": "0.0.0.0"
+     }
+    }
   },
   "override_attributes": {
 

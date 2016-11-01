@@ -43,7 +43,8 @@ end
 
 mount node['sourcesense_liferay']['data_nfs_mount'] do
   device node['sourcesense_liferay']['data_nfs']
-  fstype 'nfs'
+  options 'mode=755'
+  fstype  'nfs'
   options 'rw'
   action [:mount, :enable]
 end
@@ -86,6 +87,18 @@ template File.join(node['sourcesense_liferay']['lf_home'],"portal-ext.properties
   owner "liferay"
   group "liferay"
   mode 775
+end
+
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'],"ehcache", "hibernate-clustered.xml") do
+  source "hibernate-clustered.xml"
+  owner "liferay"
+  group "liferay"
+end
+
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'],"ehcache", "liferay-multi-vm-clustered.xml") do
+  source "liferay-multi-vm-clustered.xml"
+  owner "liferay"
+  group "liferay"
 end
 
 cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activation-key-development-6.2ee-Sourcense.xml') do

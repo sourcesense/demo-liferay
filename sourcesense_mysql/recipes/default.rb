@@ -52,6 +52,6 @@ mysql_database_user node['sourcesense_mysql']['dbuser'] do
   password      node['sourcesense_mysql']['dbpassword']
   database_name node['sourcesense_mysql']['database']
   host          '%'
-  privileges    [:select, :update, :insert]
+  privileges    [ :all ]
   action        :grant
 end
