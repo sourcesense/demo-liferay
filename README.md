@@ -37,13 +37,13 @@ launch 'vagrant plugin install vagrant-berkshelf'
 
 ## Provision the services server (services01) ##
 This machine contains NFS Server, Mysqld and Haproxy.
-Go to devops-liferay and launch "vagrant up services01"
+Go to folder 'devops-liferay' and launch "vagrant up services01"
 
 ## Provision the liferaynode01 ##
-Go to devops-liferay and launch "vagrant up liferaynode01"
+Go to folder 'devops-liferay' and launch "vagrant up liferaynode01"
 
 ## Provision the liferaynode02 ##
-Go to devops-liferay and launch "vagrant up liferaynode02"
+Go to 'devops-liferay' and launch "vagrant up liferaynode02"
 
 ### Contributions ###
 + Eugenio Marzo (eugenio.marzo@sourcesense.com)
