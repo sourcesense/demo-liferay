@@ -26,6 +26,6 @@ Go to devops-liferay and launch "vagrant up liferaynode01"
 Go to devops-liferay and launch "vagrant up liferaynode02"
 
 ### Contributions ###
-Eugenio Marzo - eugenio.marzo@sourcesense.com
-Roberto Tacchi - roberto.tacchi@sourcesense.com
-Alessio Biancalana - alessio.biancalana@sourcesense.com
++ Eugenio Marzo (eugenio.marzo@sourcesense.com)
++ Roberto Tacchi (roberto.tacchi@sourcesense.com)
++ Alessio Biancalana (alessio.biancalana@sourcesense.com)
