@@ -1,8 +1,8 @@
 ![Alt text](sourcesenselogo.png "Sourcesense")
 
-# Liferay Clustering through devops approach demo by Sourcesense #
+# Devops approach for build a Liferay Cluster - Demo by Sourcesense #
 
-Vagrant project for configure a Liferay Cluster in few minutes
+This repo is a Vagrant project for configure a Liferay Cluster in few minutes
 
 ## Requirements ##
 
@@ -10,6 +10,14 @@ The following files are not stored in GIT. Please put it manually. If you change
 
 ./sourcesense_liferay/files/default/liferay-portal-tomcat-6.2-ee-sp14-20151105114451508.zip
 ./sourcesense_liferay/files/default/activation-key-development-6.2ee-Sourcense.xml
+
+## Architecture ##
+
+This  Vagrantfile container 3 nodes
+
+- services01 => Mysqls,NFS Server and Haproxy
+- liferaynode01 => Liferay backend 1
+- liferaynode02 => Liferay backend 2
 
 ## Prepare you development environment ##
 Install Vagrant, Virtualbox and ChefDK (https://downloads.chef.io/chef-dk/)
