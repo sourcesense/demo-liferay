@@ -20,14 +20,14 @@ This  Vagrantfile container 3 nodes
 - liferaynode02 => Liferay backend 2
 
 ### Network flow ###
-[Http Client] => [ services01 (Haproxy Load Balancer) ]  ==>  [ liferaynode01,liferaynode02]
+[Http Client] => [ __services01__ (Haproxy Load Balancer) ]  ==>  [ __liferaynode01,liferaynode02__]
 
 ### Shared data between Liferay nodes ###
-liferaynode01 ==> [shared data (nfs)] <== liferaynode02
+__liferaynode01__ ==> [shared data (nfs)] <== __liferaynode02__
 
 ### Database ###
 
-[ liferaynode01,liferaynode02] ==> services01 (Mysql Server)  
+[ liferaynode01,liferaynode02] ==> __services01__ (Mysql Server)  
 
 ## Prepare you development environment ##
 Install Vagrant, Virtualbox and ChefDK (https://downloads.chef.io/chef-dk/)
