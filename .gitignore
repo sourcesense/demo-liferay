@@ -1,12 +1,14 @@
 # OS-specific
 .DS_Store
 
-./sourcesense_liferay/files/default/activation-key-development-6.2ee-Sourcense.xml
-./sourcesense_liferay/files/default/liferay-portal-tomcat-6.2-ee-sp14-20151105114451508.zip
+*.xml
+*.zip
 
 # Editor swapfiles
 .*.sw?
 *~
+
+**/.vagrant 
 
 # Vagrant stuff
 acceptance_config.yml

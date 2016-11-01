@@ -74,6 +74,8 @@ GRAPH
     mysql (>= 0.0.0)
     mysql2_chef_gem (~> 1.0)
   sourcesense_nfs (0.1.0)
+    nfs (>= 0.0.0)
+    selinux (>= 0.0.0)
   sysctl (0.8.1)
     ohai (>= 4.0)
   windows (2.0.2)

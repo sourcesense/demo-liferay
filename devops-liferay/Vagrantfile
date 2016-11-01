@@ -71,7 +71,8 @@ Vagrant.configure('2') do |config|
 
   config.vm.define 'services01' do |services01|
     services01.vm.hostname = 'services01'
-    services01.vm.network 'private_network', ip: '192.168.56.2'
+    services01.vm.network "private_network", ip: '192.168.56.2'
+
     services01.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
@@ -86,7 +87,8 @@ Vagrant.configure('2') do |config|
 
   config.vm.define 'liferaynode01' do |liferaynode01|
     liferaynode01.vm.hostname = 'liferaynode01'
-    liferaynode01.vm.network 'private_network', ip: '192.168.56.3'
+    liferaynode01.vm.network "private_network", ip: '192.168.56.3'
+
     liferaynode01.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
@@ -99,7 +101,8 @@ Vagrant.configure('2') do |config|
 
   config.vm.define 'liferaynode02' do |liferaynode02|
     liferaynode02.vm.hostname = 'liferaynode02'
-    liferaynode02.vm.network 'private_network', ip: '192.168.56.4'
+    liferaynode02.vm.network "private_network", ip: '192.168.56.4'
+
     liferaynode02.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
