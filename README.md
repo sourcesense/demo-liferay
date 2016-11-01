@@ -19,7 +19,7 @@ This  Vagrantfile container 3 nodes
 - liferaynode01 => Liferay backend 1
 - liferaynode02 => Liferay backend 2
 
-![Alt text](architecture.png "architecture")
+![Alt text](architecture.png "architecture" =100x20)
 
 ## Prepare you development environment ##
 Install Vagrant, Virtualbox and ChefDK (https://downloads.chef.io/chef-dk/)
