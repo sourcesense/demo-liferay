@@ -36,8 +36,8 @@ selinux_state 'SELinux Permissive' do
 end
 
 directory node['sourcesense_liferay']['data_nfs_mount'] do
-  owner "liferay"
-  group "liferay"
+  owner 'liferay'
+  group 'liferay'
   mode 775
 end
 
@@ -82,10 +82,10 @@ directory File.join(node['sourcesense_liferay']['lf_home'], 'cluster_deploy', 'd
   mode 775
 end
 
-template File.join(node['sourcesense_liferay']['lf_home'],"portal-ext.properties") do
-  source "portal-ext.properties.erb"
-  owner "liferay"
-  group "liferay"
+template File.join(node['sourcesense_liferay']['lf_home'], 'portal-ext.properties') do
+  source 'portal-ext.properties.erb'
+  owner 'liferay'
+  group 'liferay'
   mode 775
 end
 
@@ -95,13 +95,13 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activ
   group 'liferay'
 end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy','Bootcamp2016Startup-hook-6.2.0.1.war') do
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
   source 'Bootcamp2016Startup-hook-6.2.0.1.war'
   owner 'liferay'
   group 'liferay'
 end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy','Bootcamp2016-portlet-6.2.0.1.war') do
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016-portlet-6.2.0.1.war') do
   source 'Bootcamp2016-portlet-6.2.0.1.war'
   owner 'liferay'
   group 'liferay'
