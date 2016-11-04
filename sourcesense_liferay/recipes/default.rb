@@ -89,26 +89,14 @@ template File.join(node['sourcesense_liferay']['lf_home'],"portal-ext.properties
   mode 775
 end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'],"ehcache", "hibernate-clustered.xml") do
-  source "hibernate-clustered.xml"
-  owner "liferay"
-  group "liferay"
-end
-
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'],"ehcache", "liferay-multi-vm-clustered.xml") do
-  source "liferay-multi-vm-clustered.xml"
-  owner "liferay"
-  group "liferay"
-end
-
 cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activation-key-development-6.2ee-Sourcense.xml') do
   source 'activation-key-development-6.2ee-Sourcense.xml'
   owner 'liferay'
   group 'liferay'
 end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activation-key-development-6.2ee-Sourcense.xml') do
-  source 'activation-key-development-6.2ee-Sourcense.xml'
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy','Bootcamp2016Startup-hook-6.2.0.1.war') do
+  source 'Bootcamp2016Startup-hook-6.2.0.1.war'
   owner 'liferay'
   group 'liferay'
 end
