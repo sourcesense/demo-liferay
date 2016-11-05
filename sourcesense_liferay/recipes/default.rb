@@ -95,6 +95,12 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activ
   group 'liferay'
 end
 
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Liferay_Ehcache_Cluster.lpkg') do
+  source 'Liferay_Ehcache_Cluster.lpkg'
+  owner 'liferay'
+  group 'liferay'
+end
+
 cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
   source 'Bootcamp2016Startup-hook-6.2.0.1.war'
   owner 'liferay'
@@ -105,6 +111,7 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootc
   source 'Bootcamp2016-portlet-6.2.0.1.war'
   owner 'liferay'
   group 'liferay'
+  action :nothing
 end
 
 execute 'StartLiferay' do

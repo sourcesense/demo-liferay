@@ -14,7 +14,7 @@ Vagrant.configure('2') do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = 'bento/centos-7.1'
   config.berkshelf.enabled = true
-  config.omnibus.chef_version = :latest
+  #config.omnibus.chef_version = :latest
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -45,12 +45,6 @@ Vagrant.configure('2') do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  config.vm.provider 'virtualbox' do |vb|
-    #   # Customize the amount of memory on the VM:
-    vb.memory = '2048'
-    vb.cpus = 4
-  end
-  #
   # View the documentation for the provider you are using for more
   # information on available options.
 
@@ -70,8 +64,15 @@ Vagrant.configure('2') do |config|
   # SHELL
 
   config.vm.define 'services01' do |services01|
+    #services01.vm.box_url = "file:///Users/eugenio/WORK/LIFERAY_BOOTCAMP/services01.box"
+    #services01.vm.box = "boxservices01"
     services01.vm.hostname = 'services01'
     services01.vm.network 'private_network', ip: '192.168.56.2'
+
+    services01.vm.provider 'virtualbox' do |vb|
+      vb.memory = '1024'
+      vb.cpus = 1
+    end
 
     services01.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
@@ -89,6 +90,11 @@ Vagrant.configure('2') do |config|
     liferaynode01.vm.hostname = 'liferaynode01'
     liferaynode01.vm.network 'private_network', ip: '192.168.56.3'
 
+    services01.vm.provider 'virtualbox' do |vb|
+      vb.memory = '1024'
+      vb.cpus = 1
+    end
+
     liferaynode01.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
@@ -102,6 +108,11 @@ Vagrant.configure('2') do |config|
   config.vm.define 'liferaynode02' do |liferaynode02|
     liferaynode02.vm.hostname = 'liferaynode02'
     liferaynode02.vm.network 'private_network', ip: '192.168.56.4'
+
+    services01.vm.provider 'virtualbox' do |vb|
+      vb.memory = '1024'
+      vb.cpus = 1
+    end
 
     liferaynode02.vm.provision :chef_solo do |chef|
       chef.roles_path = './chef/roles'
