@@ -1,5 +1,5 @@
 default['sourcesense_liferay']['lf_home'] = '/opt/liferay'
-default['sourcesense_liferay']['data_nfs'] = '192.168.56.4:/data'
+default['sourcesense_liferay']['data_nfs'] = '192.168.50.4:/data'
 default['sourcesense_liferay']['data_nfs_mount'] = '/data'
 default['sourcesense_liferay']['checksum'] = '19e72792410cdbb680c39c5ed60ebdb99c6fd90998499e65701a22481d433101'
 default['sourcesense_liferay']['bundle'] = 'liferay-portal-tomcat-6.2-ee-sp14-20151105114451508.zip'
