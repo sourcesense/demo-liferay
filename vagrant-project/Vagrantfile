@@ -12,7 +12,7 @@ Vagrant.configure('2') do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = 'bento/centos-7.1'
+  config.vm.box = 'centos/7'
   config.berkshelf.enabled = true
 
   # Disable automatic box update checking. If you disable this, then
@@ -62,12 +62,11 @@ Vagrant.configure('2') do |config|
   #   apt-get install -y apache2
   # SHELL
 
-  config.vm.provision 'shell',
-                      inline: 'systemctl restart network'
-
   config.vm.define 'services01' do |services01|
-    # services01.vm.box_url = "file:///Users/eugenio/WORK/LIFERAY_BOOTCAMP/services01.box"
-    # services01.vm.box = "boxservices01"
+
+    services01.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
+    services01.vm.box = "liferaybox"
+
     services01.vm.hostname = 'services01'
     services01.vm.network 'private_network', ip: '192.168.50.4'
 
@@ -89,6 +88,10 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.define 'liferaynode01' do |liferaynode01|
+
+    liferaynode01.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
+    liferaynode01.vm.box = "liferaybox"
+
     liferaynode01.vm.hostname = 'liferaynode01'
     liferaynode01.vm.network 'private_network', ip: '192.168.50.5'
 
@@ -108,6 +111,10 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.define 'liferaynode02' do |liferaynode02|
+
+    liferaynode02.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
+    liferaynode02.vm.box = "liferaybox"
+
     liferaynode02.vm.hostname = 'liferaynode02'
     liferaynode02.vm.network 'private_network', ip: '192.168.50.6'
 
