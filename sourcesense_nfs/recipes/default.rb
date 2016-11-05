@@ -13,7 +13,7 @@ directory '/data' do
 end
 
 nfs_export '/data' do
-  network '192.168.56.0/24'
+  network '192.168.50.0/24'
   writeable true
   sync true
   options ['no_root_squash']

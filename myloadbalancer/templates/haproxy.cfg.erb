@@ -1,0 +1,34 @@
+global
+  log 127.0.0.1   local0
+  log 127.0.0.1   local1 notice
+  maxconn 4096
+  user haproxy
+  group haproxy
+
+defaults
+  log     global
+  mode    http
+  retries 3
+  timeout client 50s
+  timeout connect 5s
+  timeout server 50s
+  option dontlognull
+  option httplog
+  option redispatch
+  balance  roundrobin
+
+listen admin
+  bind 0.0.0.0:22002
+  mode http
+  stats uri /
+
+frontend http
+  maxconn 2000
+  bind 0.0.0.0:80
+  default_backend servers-http
+
+backend servers-http
+  cookie WEBSVR insert
+<% node['myloadbalancer']['liferay_backends'].each do |b| %>
+  <%= b %>
+<% end %>

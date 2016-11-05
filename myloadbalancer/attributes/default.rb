@@ -1,11 +1,4 @@
-default['myloadbalancer']['liferay_backends'] = [{
-  'hostname' => 'liferaynode01',
-  'ipaddress' => '192.168.56.3',
-  'port' => 8080,
-  'cookie' => 's1'
-}, {
-  'hostname' => 'liferaynode02',
-  'ipaddress' => '192.168.56.4',
-  'port' => 8080,
-  'cookie' => 's2'
-}]
+default['myloadbalancer']['liferay_backends'] = [
+  'server liferaynode01 192.168.50.5:8080 weight 1 maxconn 100 check',
+  'server liferaynode02 192.168.50.6:8080 weight 1 maxconn 100 check'
+]

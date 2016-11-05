@@ -16,9 +16,9 @@ The following files are not stored in GIT. Please put it manually. If you change
 ![Alt text](arch.jpg "Architecture")
 This  Vagrantfile container 3 nodes
 
-- services01 => Mysql Server,NFS Server and Haproxy as reverse proxy
-- liferaynode01 => Liferay backend 1
-- liferaynode02 => Liferay backend 2
+- services01 => Mysql Server,NFS Server and Haproxy as reverse proxy (192.168.50.4)
+- liferaynode01 => Liferay backend 1 (192.168.50.5)
+- liferaynode02 => Liferay backend 2 (192.168.50.6)
 
 ### Network flow ###
 [Http Client] => [ __services01__ (Haproxy Load Balancer) ]  ==>  [ __liferaynode01,liferaynode02__]
@@ -38,13 +38,13 @@ launch 'vagrant plugin install vagrant-berkshelf'
 
 ## Provision the services server (services01) ##
 This machine contains NFS Server, Mysqld and Haproxy.
-Go to folder 'devops-liferay' and launch "vagrant up services01"
+Go to folder 'vagrant-project' and launch "vagrant up services01"
 
 ## Provision the liferaynode01 ##
-Go to folder 'devops-liferay' and launch "vagrant up liferaynode01"
+Go to folder 'vagrant-project' and launch "vagrant up liferaynode01"
 
 ## Provision the liferaynode02 ##
-Go to 'devops-liferay' and launch "vagrant up liferaynode02"
+Go to 'vagrant-project' and launch "vagrant up liferaynode02"
 
 ### Contributions ###
 + Eugenio Marzo (eugenio.marzo@sourcesense.com)
