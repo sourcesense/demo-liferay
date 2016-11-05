@@ -13,8 +13,7 @@ The following files are not stored in GIT. Please put it manually. If you change
 
 ## Architecture ##
 
-![Alt text](architecture.jpg "Architecture")
-
+![Alt text](arch.jpg "Architecture")
 This  Vagrantfile container 3 nodes
 
 - services01 => Mysql Server,NFS Server and Haproxy as reverse proxy
