@@ -31,7 +31,7 @@ This  Vagrantfile container 3 nodes
 
 Check cluster status to in http://192.168.50.4
 
-![Alt text](clustat.png.png "clustat")
+![Alt text](clustat.png "clustat")
 
 ### Shared data between Liferay nodes ###
 __liferaynode01__ ==> [shared data (nfs)] <== __liferaynode02__
