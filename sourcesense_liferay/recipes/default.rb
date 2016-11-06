@@ -100,25 +100,29 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activ
   group 'liferay'
 end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Liferay_Ehcache_Cluster.lpkg') do
-  source 'Liferay_Ehcache_Cluster.lpkg'
-  owner 'liferay'
-  group 'liferay'
-  not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/ehcache-cluster-web" }
-end
+if node.name == "liferaynode01"
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
-  source 'Bootcamp2016Startup-hook-6.2.0.1.war'
-  owner 'liferay'
-  group 'liferay'
-  not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/Bootcamp2016Startup-hook" }
-end
+  cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Liferay_Ehcache_Cluster.lpkg') do
+   source 'Liferay_Ehcache_Cluster.lpkg'
+   owner 'liferay'
+   group 'liferay'
+   not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/ehcache-cluster-web" }
+  end
 
-cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016-portlet-6.2.0.1.war') do
-  source 'Bootcamp2016-portlet-6.2.0.1.war'
-  owner 'liferay'
-  group 'liferay'
-  action :nothing
+  cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
+   source 'Bootcamp2016Startup-hook-6.2.0.1.war'
+   owner 'liferay'
+   group 'liferay'
+   not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/Bootcamp2016Startup-hook" }
+  end
+
+  cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016-portlet-6.2.0.1.war') do
+   source 'Bootcamp2016-portlet-6.2.0.1.war'
+   owner 'liferay'
+   group 'liferay'
+   action :nothing
+  end
+
 end
 
 execute 'StartLiferay' do
