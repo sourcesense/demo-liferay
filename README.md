@@ -11,6 +11,12 @@ The following files are not stored in GIT. Please put it manually. If you change
 ./sourcesense_liferay/files/default/liferay-portal-tomcat-6.2-ee-sp14-20151105114451508.zip
 ./sourcesense_liferay/files/default/activation-key-development-6.2ee-Sourcense.xml
 
+VERY IMPORTANT THINGS:
+
+- cluster.link.autodetect.address=192.168.50.4:3306 ( Vagrant configures by default a NAT interface. You cannot use it for cluster's messaging. This configuration force to use the internal network card)
+
+- appsession JSESSIONID len 52 timeout 3h (HAPROXY CONFIGURATION - haproxy.cfg). Be sure to have this configuration in haproxy.cfg. This is mandatory for perform login passing through the loadbalancer
+
 ## Architecture ##
 
 ![Alt text](arch.jpg "Architecture")
