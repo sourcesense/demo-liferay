@@ -28,7 +28,8 @@ frontend http
   default_backend servers-http
 
 backend servers-http
-  cookie WEBSVR insert
+  appsession JSESSIONID len 52 timeout 3h
+  cookie SERVERID insert indirect nocache
 <% node['myloadbalancer']['liferay_backends'].each do |b| %>
   <%= b %>
 <% end %>

@@ -3,7 +3,6 @@
 # Recipe:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
-
 user 'liferay' do
   manage_home true
   comment 'Lifery user!'
@@ -64,6 +63,12 @@ ark 'liferay' do
   backup false
 end
 
+directory File.join(node['sourcesense_liferay']['data_nfs_mount'],"document_library") do
+  owner 'liferay'
+  group 'liferay'
+  mode 775
+end
+
 directory File.join(node['sourcesense_liferay']['lf_home'], 'deploy') do
   owner 'liferay'
   group 'liferay'
@@ -99,12 +104,14 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Lifer
   source 'Liferay_Ehcache_Cluster.lpkg'
   owner 'liferay'
   group 'liferay'
+  not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/ehcache-cluster-web" }
 end
 
 cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
   source 'Bootcamp2016Startup-hook-6.2.0.1.war'
   owner 'liferay'
   group 'liferay'
+  not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/Bootcamp2016Startup-hook" }
 end
 
 cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016-portlet-6.2.0.1.war') do
@@ -117,4 +124,5 @@ end
 execute 'StartLiferay' do
   command './startup.sh'
   cwd File.join(node['sourcesense_liferay']['lf_home'], 'tomcat-7.0.62', 'bin')
+  not_if 'timeout 2 bash -c "</dev/tcp/localhost/8080"'
 end

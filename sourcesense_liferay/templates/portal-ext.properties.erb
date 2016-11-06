@@ -20,7 +20,9 @@ net.sf.ehcache.configurationResourceName=/ehcache/hibernateclustered.xml
 ehcache.multi.vm.config.location=/ehcache/liferay-multi-vmclustered.xml
 
 dl.store.impl=com.liferay.portlet.documentlibrary.store.AdvancedFileSystemStore
-dl.store.file.system.root.dir=<%=node['sourcesense_liferay']['data_nfs_mount']%>
+dl.store.file.system.root.dir=<%=node['sourcesense_liferay']['data_nfs_mount']%>/document_library
+
+cluster.link.autodetect.address=192.168.50.4:3306
 
 #JDBC parameters
 jdbc.default.driverClassName=com.mysql.jdbc.Driver

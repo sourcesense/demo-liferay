@@ -23,6 +23,10 @@ This  Vagrantfile container 3 nodes
 ### Network flow ###
 [Http Client] => [ __services01__ (Haproxy Load Balancer) ]  ==>  [ __liferaynode01,liferaynode02__]
 
+Check cluster status to in http://192.168.50.4
+
+![Alt text](clustat.png.png "clustat")
+
 ### Shared data between Liferay nodes ###
 __liferaynode01__ ==> [shared data (nfs)] <== __liferaynode02__
 
@@ -33,18 +37,18 @@ __liferaynode01__ ==> [shared data (nfs)] <== __liferaynode02__
 ## Prepare you development environment ##
 Install Vagrant, Virtualbox and ChefDK (https://downloads.chef.io/chef-dk/)
 
-launch 'vagrant plugin install vagrant-omnibus'
-launch 'vagrant plugin install vagrant-berkshelf'
+- launch 'vagrant plugin install vagrant-omnibus'
+- launch 'vagrant plugin install vagrant-berkshelf'
 
 ## Provision the services server (services01) ##
 This machine contains NFS Server, Mysqld and Haproxy.
-Go to folder 'vagrant-project' and launch "vagrant up services01"
+- Go to folder 'vagrant-project' and launch "vagrant up services01"
 
 ## Provision the liferaynode01 ##
-Go to folder 'vagrant-project' and launch "vagrant up liferaynode01"
+- Go to folder 'vagrant-project' and launch "vagrant up liferaynode01"
 
 ## Provision the liferaynode02 ##
-Go to 'vagrant-project' and launch "vagrant up liferaynode02"
+- Go to 'vagrant-project' and launch "vagrant up liferaynode02"
 
 ### Contributions ###
 + Eugenio Marzo (eugenio.marzo@sourcesense.com)
