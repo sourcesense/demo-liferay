@@ -16,8 +16,12 @@ cluster.link.enabled=true
 ehcache.cluster.link.replication.enabled=true
 lucene.replicate.write=true
 
-net.sf.ehcache.configurationResourceName=/ehcache/hibernateclustered.xml
-ehcache.multi.vm.config.location=/ehcache/liferay-multi-vmclustered.xml
+# Unicast Cluster Configuration
+
+net.sf.ehcache.configurationResourceName=/ehcache/hibernate-clustered.xml
+
+ehcache.multi.vm.config.location=/ehcache/liferay-multi-vm-clustered.xml
+
 
 dl.store.impl=com.liferay.portlet.documentlibrary.store.AdvancedFileSystemStore
 dl.store.file.system.root.dir=<%=node['sourcesense_liferay']['data_nfs_mount']%>/document_library
@@ -29,5 +33,4 @@ jdbc.default.driverClassName=com.mysql.jdbc.Driver
 jdbc.default.url=jdbc:mysql://<%=node['sourcesense_mysql']['db_host']%>/<%=node['sourcesense_mysql']['database']%>?useUniCode=true&characterEncoding=UTF-8&useFastDateParsing=false
 jdbc.default.username=<%=node['sourcesense_mysql']['dbuser']%>
 jdbc.default.password=<%=node['sourcesense_mysql']['dbpassword']%>
-
 

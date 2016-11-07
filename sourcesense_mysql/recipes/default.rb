@@ -55,3 +55,8 @@ mysql_database_user node['sourcesense_mysql']['dbuser'] do
   privileges    [:all]
   action        :grant
 end
+
+
+execute "erasedb" do
+  command "sleep 5 && mysql -h 127.0.0.1 -u root -ppassword -e \"drop database lportalCluster; create database lportalCluster\""
+end

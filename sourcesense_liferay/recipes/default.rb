@@ -87,6 +87,24 @@ directory File.join(node['sourcesense_liferay']['lf_home'], 'cluster_deploy', 'd
   mode 775
 end
 
+directory "#{node['sourcesense_liferay']['lf_home']}/tomcat-7.0.62/webapps/ROOT/WEB-INF/classes/myehcache" do
+  owner 'liferay'
+  group 'liferay'
+  mode 775
+end
+
+cookbook_file "#{node['sourcesense_liferay']['lf_home']}/tomcat-7.0.62/webapps/ROOT/WEB-INF/classes/myehcache/liferay-multi-vm-clustered.xml" do
+  source 'liferay-multi-vm-clustered.xml'
+  owner 'liferay'
+  group 'liferay'
+end
+
+cookbook_file "#{node['sourcesense_liferay']['lf_home']}/tomcat-7.0.62/webapps/ROOT/WEB-INF/classes/myehcache/hibernate-clustered.xml" do
+  source 'hibernate-clustered.xml'
+  owner 'liferay'
+  group 'liferay'
+end
+
 template File.join(node['sourcesense_liferay']['lf_home'], 'portal-ext.properties') do
   source 'portal-ext.properties.erb'
   owner 'liferay'
@@ -100,20 +118,21 @@ cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'activ
   group 'liferay'
 end
 
-if node.name == "liferaynode01"
+cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Liferay_Ehcache_Cluster.lpkg') do
+  source 'Liferay_Ehcache_Cluster.lpkg'
+  owner 'liferay'
+  group 'liferay'
+  not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/ehcache-cluster-web" }
+end
 
-  cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Liferay_Ehcache_Cluster.lpkg') do
-   source 'Liferay_Ehcache_Cluster.lpkg'
-   owner 'liferay'
-   group 'liferay'
-   not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/ehcache-cluster-web" }
-  end
+if node.name == "liferaynode01"
 
   cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016Startup-hook-6.2.0.1.war') do
    source 'Bootcamp2016Startup-hook-6.2.0.1.war'
    owner 'liferay'
    group 'liferay'
    not_if { File.exists? "/opt/liferay/tomcat-7.0.62/webapps/Bootcamp2016Startup-hook" }
+   action :nothing
   end
 
   cookbook_file File.join(node['sourcesense_liferay']['lf_home'], 'deploy', 'Bootcamp2016-portlet-6.2.0.1.war') do

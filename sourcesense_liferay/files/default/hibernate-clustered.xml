@@ -31,7 +31,6 @@
 			properties="replicatePuts=false,replicateUpdatesViaCopy=false"
 			propertySeparator=","
 		/>
-		<bootstrapCacheLoaderFactory class="com.liferay.portal.cache.ehcache.LiferayBootstrapCacheLoaderFactory" />
 	</defaultCache>
 
 	<!--
@@ -46,11 +45,11 @@
 		eternal="true"
 		maxElementsInMemory="5000"
 		name="org.hibernate.cache.UpdateTimestampsCache"
+		overflowToDisk="false"
 	>
 		<cacheEventListenerFactory
 			class="com.liferay.portal.cache.ehcache.LiferayCacheEventListenerFactory"
 		/>
-		<bootstrapCacheLoaderFactory class="com.liferay.portal.cache.ehcache.LiferayBootstrapCacheLoaderFactory" />
 	</cache>
 
 	<!--
@@ -62,6 +61,7 @@
 		eternal="false"
 		maxElementsInMemory="10000"
 		name="com.liferay.portal.model.impl.UserImpl"
+		overflowToDisk="false"
 		timeToIdleSeconds="600"
 	>
 		<cacheEventListenerFactory
@@ -69,6 +69,5 @@
 			properties="replicatePuts=false,replicateUpdatesViaCopy=false"
 			propertySeparator=","
 		/>
-		<bootstrapCacheLoaderFactory class="com.liferay.portal.cache.ehcache.LiferayBootstrapCacheLoaderFactory" />
 	</cache>
 </ehcache>
