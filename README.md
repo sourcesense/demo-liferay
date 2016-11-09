@@ -1,5 +1,3 @@
-![Alt text](sourcesenselogo.png "Sourcesense")
-
 # Devops approach for build a Liferay Cluster - Demo by Sourcesense #
 
 This repo is a Vagrant project for configure a Liferay Cluster in few minutes.
