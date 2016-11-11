@@ -146,6 +146,7 @@ end
 
 execute 'StartLiferay' do
   command './startup.sh'
+  user 'liferay'
   cwd File.join(node['sourcesense_liferay']['lf_home'], 'tomcat-7.0.62', 'bin')
   not_if 'timeout 2 bash -c "</dev/tcp/localhost/8080"'
 end
